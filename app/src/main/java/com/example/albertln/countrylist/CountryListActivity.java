@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,5 +32,13 @@ public class CountryListActivity extends AppCompatActivity {
         country_list_view.setAdapter(adapter);
 
         country_list_view.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+
+        adapter.SetOnClickListener(new CountryListAdapter.OnClickListener(){
+
+            @Override
+            public void OnClick(int position) {
+                Toast.makeText(CountryListActivity.this, "Has clicat " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
